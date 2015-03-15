@@ -7,10 +7,15 @@ namespace MumbleDj.TestApp
     {
         private static void Main()
         {
-            var mumbleClient = new MumbleClient("localhost", 64738);
-            mumbleClient.Connect("MumbleDj", string.Empty);
+            var address = new MumbleAddress { Address = "localhost", Port = 64738 };
+            var credentials = new MumbleCredentials {Username = "MumbleDj", Password = string.Empty};
+            var callback = new MumbleCallback();
+            var connection = new MumbleConnection(address, callback);
+            var client = new MumbleClient(connection);
 
-            var t = new Thread(a => UpdateLoop(mumbleClient)) {IsBackground = true};
+            client.Connect(credentials);
+
+            var t = new Thread(a => UpdateLoop(client)) { IsBackground = true };
             t.Start();
 
             Console.ReadLine();
@@ -18,7 +23,7 @@ namespace MumbleDj.TestApp
 
         private static void UpdateLoop(MumbleClient client)
         {
-            while (true)
+            while (client.IsConnected)
             {
                 client.Process();
             }

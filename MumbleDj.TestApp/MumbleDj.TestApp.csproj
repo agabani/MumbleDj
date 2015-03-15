@@ -46,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionStates.cs" />
+    <Compile Include="MumbleAddress.cs" />
+    <Compile Include="MumbleCallback.cs" />
     <Compile Include="MumbleClient.cs" />
+    <Compile Include="MumbleConnection.cs" />
+    <Compile Include="MumbleCredentials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
