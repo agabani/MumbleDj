@@ -1,7 +1,8 @@
 ﻿using System;
+using MumbleDj.MumbleNetworkClient.Models;
 using MumbleDj.Packets;
 
-namespace MumbleDj.TestApp
+namespace MumbleDj.MumbleNetworkClient
 {
     public class MumbleClient
     {

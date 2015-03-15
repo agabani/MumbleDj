@@ -1,4 +1,4 @@
-﻿namespace MumbleDj.TestApp
+﻿namespace MumbleDj.MumbleNetworkClient.Models
 {
     public class MumbleAddress
     {

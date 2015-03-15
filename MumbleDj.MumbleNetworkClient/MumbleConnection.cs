@@ -4,11 +4,13 @@ using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
+using MumbleDj.MumbleNetworkClient.Callbacks;
+using MumbleDj.MumbleNetworkClient.Models;
 using MumbleDj.Packets;
 using ProtoBuf;
 using Version = MumbleDj.Packets.Version;
 
-namespace MumbleDj.TestApp
+namespace MumbleDj.MumbleNetworkClient
 {
     public class MumbleConnection : IDisposable
     {
@@ -108,7 +110,7 @@ namespace MumbleDj.TestApp
                 Username = mumbleCredentials.Username,
                 Password = mumbleCredentials.Password,
                 Tokens = mumbleCredentials.Tokens ?? new string[0],
-                CeltVersions = new[] {unchecked ((int) 0x8000000b)},
+                CeltVersions = new[] {unchecked((int) 0x8000000b)},
                 Opus = true
             };
 

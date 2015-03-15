@@ -24,7 +24,7 @@ namespace MumbleDj.Packets
         public override string ToString()
         {
             return string.Format("Session:{0}\nChannelId:{1}\nGroup:{2}\nLinks:{3}\nChildren:{4}",
-                Session != null ? string.Join(",", Session) : "null", 
+                Session != null ? string.Join(",", Session) : "null",
                 ChannelId, Group, Links, Children);
         }
 

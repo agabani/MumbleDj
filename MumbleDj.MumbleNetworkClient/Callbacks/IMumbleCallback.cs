@@ -1,6 +1,6 @@
-using MumbleDj.Packets;
+﻿using MumbleDj.Packets;
 
-namespace MumbleDj.TestApp
+namespace MumbleDj.MumbleNetworkClient.Callbacks
 {
     public interface IMumbleCallback
     {

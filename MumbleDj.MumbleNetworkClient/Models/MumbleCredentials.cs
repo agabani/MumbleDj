@@ -1,9 +1,9 @@
-﻿namespace MumbleDj.TestApp
+﻿namespace MumbleDj.MumbleNetworkClient.Models
 {
     public class MumbleCredentials
     {
         public string Password;
-        public string Username;
         public string[] Tokens;
+        public string Username;
     }
 }

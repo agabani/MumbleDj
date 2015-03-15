@@ -1,4 +1,7 @@
 ﻿using System;
+using MumbleDj.MumbleNetworkClient;
+using MumbleDj.MumbleNetworkClient.Callbacks;
+using MumbleDj.MumbleNetworkClient.Models;
 
 namespace MumbleDj.TestApp
 {

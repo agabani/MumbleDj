@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading;
+using MumbleDj.MumbleNetworkClient;
+using MumbleDj.MumbleNetworkClient.Callbacks;
+using MumbleDj.MumbleNetworkClient.Models;
 using MumbleDj.Packets;
 using Version = MumbleDj.Packets.Version;
 
