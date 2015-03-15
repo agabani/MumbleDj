@@ -1,139 +1,152 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MumbleDj.Packets;
 using Version = MumbleDj.Packets.Version;
 
 namespace MumbleDj.TestApp
 {
-    public class MumbleCallback
+    class MumbleProxyCallback : IMumbleCallback
     {
+        private IMumbleCallback _mumbleCallback;
+
+        public IMumbleCallback MumbleCallback
+        {
+            get { return _mumbleCallback; }
+            set { _mumbleCallback = value; }
+        }
+
+
         public void VersionCallback(Version version)
         {
-            Console.WriteLine(version);
+            _mumbleCallback.VersionCallback(version);
         }
 
         public void UdpTunnelCallback(byte[] packet)
         {
-            Console.WriteLine("{0}", BitConverter.ToString(packet).Replace("-", ":"));
+            _mumbleCallback.UdpTunnelCallback(packet);
         }
 
         public void AuthenticateCallback(Authenticate authenticate)
         {
-            Console.WriteLine(authenticate);
+            _mumbleCallback.AuthenticateCallback(authenticate);
         }
 
         public void PingCallback(Ping ping)
         {
-            Console.WriteLine(ping);
+            _mumbleCallback.PingCallback(ping);
         }
 
         public void RejectCallback(Reject reject)
         {
-            Console.WriteLine(reject);
+            _mumbleCallback.RejectCallback(reject);
         }
 
         public void ServerSyncCallback(ServerSync serverSync)
         {
-            Console.WriteLine(serverSync);
+            _mumbleCallback.ServerSyncCallback(serverSync);
         }
 
         public void ChannelRemoveCallback(ChannelRemove channelRemove)
         {
-            Console.WriteLine(channelRemove);
+            _mumbleCallback.ChannelRemoveCallback(channelRemove);
         }
 
         public void ChannelStateCallback(ChannelState channelState)
         {
-            Console.WriteLine(channelState);
+            _mumbleCallback.ChannelStateCallback(channelState);
         }
 
         public void UserRemoveCallback(UserRemove userRemove)
         {
-            Console.WriteLine(userRemove);
+            _mumbleCallback.UserRemoveCallback(userRemove);
         }
 
         public void UserStateCallback(UserState userState)
         {
-            Console.WriteLine(userState);
+            _mumbleCallback.UserStateCallback(userState);
         }
 
         public void BanListCallback(BanList banList)
         {
-            Console.WriteLine(banList);
+            _mumbleCallback.BanListCallback(banList);
         }
 
         public void TextMessageCallback(TextMessage textMessage)
         {
-            Console.WriteLine(textMessage);
+            _mumbleCallback.TextMessageCallback(textMessage);
         }
 
         public void PermissionDeniedCallback(PermissionDenied permissionDenied)
         {
-            Console.WriteLine(permissionDenied);
+            _mumbleCallback.PermissionDeniedCallback(permissionDenied);
         }
 
         public void AclCallback(Acl acl)
         {
-            Console.WriteLine(acl);
+            _mumbleCallback.AclCallback(acl);
         }
 
         public void QueryUsersCallback(QueryUsers queryUsers)
         {
-            Console.WriteLine(queryUsers);
+            _mumbleCallback.QueryUsersCallback(queryUsers);
         }
 
         public void CryptSetupCallback(CryptSetup cryptSetup)
         {
-            Console.WriteLine(cryptSetup);
+            _mumbleCallback.CryptSetupCallback(cryptSetup);
         }
 
-        public void ContextActionAddCallback(ContextActionModify contextActionModify)
+        public void ContextActionModifyCallback(ContextActionModify contextActionModify)
         {
-            Console.WriteLine(contextActionModify);
+            _mumbleCallback.ContextActionModifyCallback(contextActionModify);
         }
 
         public void ContextActionCallback(ContextAction contextAction)
         {
-            Console.WriteLine(contextAction);
+            _mumbleCallback.ContextActionCallback(contextAction);
         }
 
         public void UserListCallback(UserList userList)
         {
-            Console.WriteLine(userList);
+            _mumbleCallback.UserListCallback(userList);
         }
 
         public void VoiceTargetCallback(VoiceTarget voiceTarget)
         {
-            Console.WriteLine(voiceTarget);
+            _mumbleCallback.VoiceTargetCallback(voiceTarget);
         }
 
         public void PermissionQueryCallback(PermissionQuery permissionQuery)
         {
-            Console.WriteLine(permissionQuery);
+            _mumbleCallback.PermissionQueryCallback(permissionQuery);
         }
 
         public void CodecVersionCallback(CodecVersion codecVersion)
         {
-            Console.WriteLine(codecVersion);
+            _mumbleCallback.CodecVersionCallback(codecVersion);
         }
 
         public void UserStatsCallback(UserStats userStats)
         {
-            Console.WriteLine(userStats);
+            _mumbleCallback.UserStatsCallback(userStats);
         }
 
         public void RequestBlobCallback(RequestBlob requestBlob)
         {
-            Console.WriteLine(requestBlob);
+            _mumbleCallback.RequestBlobCallback(requestBlob);
         }
 
         public void ServerConfigCallback(ServerConfig serverConfig)
         {
-            Console.WriteLine(serverConfig);
+            _mumbleCallback.ServerConfigCallback(serverConfig);
         }
 
         public void SuggestConfigCallback(SuggestConfig suggestConfig)
         {
-            Console.WriteLine(suggestConfig);
+            _mumbleCallback.SuggestConfigCallback(suggestConfig);
         }
 
         public void EmptyCallback()

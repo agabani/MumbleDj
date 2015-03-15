@@ -13,7 +13,7 @@ namespace MumbleDj.TestApp
     public class MumbleConnection : IDisposable
     {
         private readonly MumbleAddress _mumbleAddress;
-        private readonly MumbleCallback _mumbleCallback;
+        private readonly IMumbleCallback _mumbleCallback;
         private DateTime _lastSentPing = DateTime.MinValue;
         private TcpClient _tcpClient;
         private NetworkStream _tcpNetworkStream;
@@ -21,7 +21,7 @@ namespace MumbleDj.TestApp
         private SslStream _tcpSslStream;
         private BinaryWriter _tcpWriter;
 
-        public MumbleConnection(MumbleAddress mumbleAddress, MumbleCallback mumbleCallback)
+        public MumbleConnection(MumbleAddress mumbleAddress, IMumbleCallback mumbleCallback)
         {
             ConnectionState = ConnectionStates.Disconnected;
             _mumbleAddress = mumbleAddress;
@@ -211,7 +211,7 @@ namespace MumbleDj.TestApp
                             PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.ContextActionModify:
-                    _mumbleCallback.ContextActionAddCallback(
+                    _mumbleCallback.ContextActionModifyCallback(
                         Serializer.DeserializeWithLengthPrefix<ContextActionModify>(_tcpSslStream,
                             PrefixStyle.Fixed32BigEndian));
                     break;
@@ -266,11 +266,6 @@ namespace MumbleDj.TestApp
 
         public void Send<T>(PacketType packetType, T packet)
         {
-            if (ConnectionState != ConnectionStates.Connecting && ConnectionState != ConnectionStates.Connected)
-            {
-                throw new InvalidOperationException("Not connected.");
-            }
-
             lock (_tcpSslStream)
             {
                 _tcpWriter.Write(IPAddress.HostToNetworkOrder((short) packetType));

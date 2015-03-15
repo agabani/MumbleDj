@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace MumbleDj.TestApp
 {
@@ -7,26 +6,20 @@ namespace MumbleDj.TestApp
     {
         private static void Main()
         {
-            var address = new MumbleAddress { Address = "localhost", Port = 64738 };
+            var address = new MumbleAddress {Address = "localhost", Port = 64738};
             var credentials = new MumbleCredentials {Username = "MumbleDj", Password = string.Empty};
-            var callback = new MumbleCallback();
-            var connection = new MumbleConnection(address, callback);
+
+            var proxyCallback = new MumbleProxyCallback();
+
+            var connection = new MumbleConnection(address, proxyCallback);
             var client = new MumbleClient(connection);
+            var application = new MumbleApplication(client, credentials);
 
-            client.Connect(credentials);
+            proxyCallback.MumbleCallback = application;
 
-            var t = new Thread(a => UpdateLoop(client)) { IsBackground = true };
-            t.Start();
+            application.Run();
 
             Console.ReadLine();
-        }
-
-        private static void UpdateLoop(MumbleClient client)
-        {
-            while (client.IsConnected)
-            {
-                client.Process();
-            }
         }
     }
 }

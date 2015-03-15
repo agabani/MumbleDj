@@ -1,4 +1,7 @@
-﻿namespace MumbleDj.TestApp
+﻿using System;
+using MumbleDj.Packets;
+
+namespace MumbleDj.TestApp
 {
     public class MumbleClient
     {
@@ -27,6 +30,16 @@
         public void Process()
         {
             _mumbleConnection.Process();
+        }
+
+        public void Send<T>(PacketType type, T packet)
+        {
+            if (!IsConnected)
+            {
+                throw new InvalidOperationException("Not connected.");
+            }
+
+            _mumbleConnection.Send(type, packet);
         }
     }
 }

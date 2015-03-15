@@ -47,11 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionStates.cs" />
+    <Compile Include="IMumbleCallback.cs" />
     <Compile Include="MumbleAddress.cs" />
-    <Compile Include="MumbleCallback.cs" />
+    <Compile Include="ConsoleWriteLineCallback.cs" />
+    <Compile Include="MumbleApplication.cs" />
     <Compile Include="MumbleClient.cs" />
     <Compile Include="MumbleConnection.cs" />
     <Compile Include="MumbleCredentials.cs" />
+    <Compile Include="MumbleProxyCallback.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
