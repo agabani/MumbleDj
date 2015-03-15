@@ -155,7 +155,8 @@ namespace MumbleDj.TestApp
                         PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.Reject:
-                    _mumbleCallback.RejectCallback();
+                    _mumbleCallback.RejectCallback(Serializer.DeserializeWithLengthPrefix<Reject>(_tcpSslStream,
+                        PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.ServerSync:
                     _mumbleCallback.ServerSyncCallback(
@@ -183,7 +184,8 @@ namespace MumbleDj.TestApp
                             PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.BanList:
-                    _mumbleCallback.BanListCallback();
+                    _mumbleCallback.BanListCallback(Serializer.DeserializeWithLengthPrefix<BanList>(_tcpSslStream,
+                        PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.TextMessage:
                     _mumbleCallback.TextMessageCallback(
@@ -191,22 +193,26 @@ namespace MumbleDj.TestApp
                             PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.PermissionDenied:
-                    _mumbleCallback.PermissionDeniedCallback();
+                    _mumbleCallback.PermissionDeniedCallback(
+                        Serializer.DeserializeWithLengthPrefix<PermissionDenied>(_tcpSslStream,
+                            PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.Acl:
-                    _mumbleCallback.AclCallback();
+                    _mumbleCallback.AclCallback(Serializer.DeserializeWithLengthPrefix<Acl>(_tcpSslStream,
+                        PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.QueryUsers:
-                    _mumbleCallback.QueryUsersCallback();
+                    _mumbleCallback.QueryUsersCallback(Serializer.DeserializeWithLengthPrefix<QueryUsers>(
+                        _tcpSslStream, PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.CryptSetup:
                     _mumbleCallback.CryptSetupCallback(
                         Serializer.DeserializeWithLengthPrefix<CryptSetup>(_tcpSslStream,
                             PrefixStyle.Fixed32BigEndian));
                     break;
-                case PacketType.ContextActionAdd:
+                case PacketType.ContextActionModify:
                     _mumbleCallback.ContextActionAddCallback(
-                        Serializer.DeserializeWithLengthPrefix<ContextActionAdd>(_tcpSslStream,
+                        Serializer.DeserializeWithLengthPrefix<ContextActionModify>(_tcpSslStream,
                             PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.ContextAction:
@@ -219,7 +225,8 @@ namespace MumbleDj.TestApp
                         PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.VoiceTarget:
-                    _mumbleCallback.VoiceTargetCallback();
+                    _mumbleCallback.VoiceTargetCallback(
+                        Serializer.DeserializeWithLengthPrefix<VoiceTarget>(_tcpSslStream, PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.PermissionQuery:
                     _mumbleCallback.PermissionQueryCallback(
@@ -232,10 +239,12 @@ namespace MumbleDj.TestApp
                             PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.UserStats:
-                    _mumbleCallback.UserStatsCallback();
+                    _mumbleCallback.UserStatsCallback(Serializer.DeserializeWithLengthPrefix<UserStats>(_tcpSslStream,
+                        PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.RequestBlob:
-                    _mumbleCallback.RequestBlobCallback();
+                    _mumbleCallback.RequestBlobCallback(
+                        Serializer.DeserializeWithLengthPrefix<RequestBlob>(_tcpSslStream, PrefixStyle.Fixed32BigEndian));
                     break;
                 case PacketType.ServerConfig:
                     _mumbleCallback.ServerConfigCallback(

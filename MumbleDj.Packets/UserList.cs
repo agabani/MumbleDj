@@ -6,23 +6,29 @@ namespace MumbleDj.Packets
     [ProtoContract]
     public class UserList
     {
-        [ProtoMember(1)] public UserListUser[] Users;
-
+        // ReSharper disable UnassignedField.Global
+        [ProtoMember(1)] public User[] Users;
+        // ReSharper restore UnassignedField.Global
         public override string ToString()
         {
-            return string.Format("Users:{0}", string.Join(",", Users.ToString()));
+            return string.Format("Users:{0}", Users != null ? string.Join(",", Users.ToString()) : "null");
         }
     }
 
     [ProtoContract]
-    public class UserListUser
+    public class User
     {
-        [ProtoMember(2, IsRequired = false)] public string Name;
-        [ProtoMember(1, IsRequired = true)] public UInt32 UserId;
-
         public override string ToString()
         {
-            return string.Format("UserId:{0} Name:{1}", UserId, Name);
+            return string.Format("UserId:{0}\nName:{1}\nLastSeen:{2}\nLastChannel:{3}", UserId, Name, LastSeen,
+                LastChannel);
         }
+
+        // ReSharper disable UnassignedField.Global
+        [ProtoMember(1)] public UInt32 UserId;
+        [ProtoMember(2, IsRequired = false)] public string Name;
+        [ProtoMember(3, IsRequired = false)] public string LastSeen;
+        [ProtoMember(4, IsRequired = false)] public UInt32? LastChannel;
+        // ReSharper restore UnassignedField.Global
     }
 }

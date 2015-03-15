@@ -14,8 +14,8 @@ namespace MumbleDj.Packets
         // ReSharper disable NotAccessedField.Global
         [ProtoMember(1)] public Int32 Alpha;
         [ProtoMember(2)] public Int32 Beta;
-        [ProtoMember(3)] public bool PreferAlpha;
-        [ProtoMember(4)] public bool Opus;
+        [ProtoMember(3)] public bool PreferAlpha = true;
+        [ProtoMember(4)] public bool? Opus = false;
         // ReSharper restore NotAccessedField.Global
     }
 }

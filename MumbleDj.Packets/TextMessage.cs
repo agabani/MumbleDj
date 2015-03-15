@@ -8,19 +8,18 @@ namespace MumbleDj.Packets
     {
         public override string ToString()
         {
-            return string.Format("Actor:{0}\nChannelId:{1}\nMessage:{2}\nSession:{3}\nTreeId:{4}", Actor,
-                ChannelId != null ? string.Join(",", ChannelId) : "null",
-                Message != null ? string.Join(",", Message) : "null",
+            return string.Format("Actor:{0}\nSession:{1}\nChannelId:{2}\nTreeId:{3}\nMessage:{4}", Actor,
                 Session != null ? string.Join(",", Session) : "null",
-                TreeId != null ? string.Join(",", TreeId) : "null");
+                ChannelId != null ? string.Join(",", ChannelId) : "null",
+                TreeId != null ? string.Join(",", TreeId) : "null", Message);
         }
 
         // ReSharper disable UnassignedField.Global
-        [ProtoMember(1, IsRequired = false)] public UInt32 Actor;
-        [ProtoMember(3)] public UInt32[] ChannelId;
-        [ProtoMember(5)] public String[] Message;
+        [ProtoMember(1, IsRequired = false)] public UInt32? Actor;
         [ProtoMember(2)] public UInt32[] Session;
+        [ProtoMember(3)] public UInt32[] ChannelId;
         [ProtoMember(4)] public UInt32[] TreeId;
+        [ProtoMember(5)] public string Message;
         // ReSharper restore UnassignedField.Global
     }
 }

@@ -15,11 +15,11 @@ namespace MumbleDj.Packets
         }
 
         // ReSharper disable NotAccessedField.Global
-        [ProtoMember(1, IsRequired = false)] public UInt32 MaxBandwidth;
-        [ProtoMember(2, IsRequired = false)] public String WelcomeText;
-        [ProtoMember(3, IsRequired = false)] public bool AllowHtml;
-        [ProtoMember(4, IsRequired = false)] public UInt32 MessageLength;
-        [ProtoMember(5, IsRequired = false)] public UInt32 ImageMessageLength;
+        [ProtoMember(1, IsRequired = false)] public UInt32? MaxBandwidth;
+        [ProtoMember(2, IsRequired = false)] public string WelcomeText;
+        [ProtoMember(3, IsRequired = false)] public bool? AllowHtml;
+        [ProtoMember(4, IsRequired = false)] public UInt32? MessageLength;
+        [ProtoMember(5, IsRequired = false)] public UInt32? ImageMessageLength;
         // ReSharper restore NotAccessedField.Global
     }
 }

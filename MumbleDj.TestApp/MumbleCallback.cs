@@ -13,7 +13,7 @@ namespace MumbleDj.TestApp
 
         public void UdpTunnelCallback(byte[] packet)
         {
-            Console.WriteLine("{0}", packet);
+            Console.WriteLine("{0}", BitConverter.ToString(packet).Replace("-", ":"));
         }
 
         public void AuthenticateCallback(Authenticate authenticate)
@@ -26,9 +26,9 @@ namespace MumbleDj.TestApp
             Console.WriteLine(ping);
         }
 
-        public void RejectCallback()
+        public void RejectCallback(Reject reject)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(reject);
         }
 
         public void ServerSyncCallback(ServerSync serverSync)
@@ -48,7 +48,7 @@ namespace MumbleDj.TestApp
 
         public void UserRemoveCallback(UserRemove userRemove)
         {
-            Console.WriteLine(userRemove);   
+            Console.WriteLine(userRemove);
         }
 
         public void UserStateCallback(UserState userState)
@@ -56,9 +56,9 @@ namespace MumbleDj.TestApp
             Console.WriteLine(userState);
         }
 
-        public void BanListCallback()
+        public void BanListCallback(BanList banList)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(banList);
         }
 
         public void TextMessageCallback(TextMessage textMessage)
@@ -66,19 +66,19 @@ namespace MumbleDj.TestApp
             Console.WriteLine(textMessage);
         }
 
-        public void PermissionDeniedCallback()
+        public void PermissionDeniedCallback(PermissionDenied permissionDenied)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(permissionDenied);
         }
 
-        public void AclCallback()
+        public void AclCallback(Acl acl)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(acl);
         }
 
-        public void QueryUsersCallback()
+        public void QueryUsersCallback(QueryUsers queryUsers)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(queryUsers);
         }
 
         public void CryptSetupCallback(CryptSetup cryptSetup)
@@ -86,9 +86,9 @@ namespace MumbleDj.TestApp
             Console.WriteLine(cryptSetup);
         }
 
-        public void ContextActionAddCallback(ContextActionAdd contextActionAdd)
+        public void ContextActionAddCallback(ContextActionModify contextActionModify)
         {
-            Console.WriteLine(contextActionAdd);
+            Console.WriteLine(contextActionModify);
         }
 
         public void ContextActionCallback(ContextAction contextAction)
@@ -101,9 +101,9 @@ namespace MumbleDj.TestApp
             Console.WriteLine(userList);
         }
 
-        public void VoiceTargetCallback()
+        public void VoiceTargetCallback(VoiceTarget voiceTarget)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(voiceTarget);
         }
 
         public void PermissionQueryCallback(PermissionQuery permissionQuery)
@@ -116,14 +116,14 @@ namespace MumbleDj.TestApp
             Console.WriteLine(codecVersion);
         }
 
-        public void UserStatsCallback()
+        public void UserStatsCallback(UserStats userStats)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(userStats);
         }
 
-        public void RequestBlobCallback()
+        public void RequestBlobCallback(RequestBlob requestBlob)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(requestBlob);
         }
 
         public void ServerConfigCallback(ServerConfig serverConfig)

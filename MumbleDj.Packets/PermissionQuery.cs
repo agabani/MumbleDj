@@ -12,9 +12,9 @@ namespace MumbleDj.Packets
         }
 
         // ReSharper disable NotAccessedField.Global
-        [ProtoMember(1, IsRequired = false)] public UInt32 ChannelId;
-        [ProtoMember(2, IsRequired = false)] public UInt32 Permissions;
-        [ProtoMember(3, IsRequired = false)] public bool Flush;
+        [ProtoMember(1, IsRequired = false)] public UInt32? ChannelId;
+        [ProtoMember(2, IsRequired = false)] public UInt32? Permissions;
+        [ProtoMember(3, IsRequired = false)] public bool? Flush = false;
         // ReSharper restore NotAccessedField.Global
     }
 }

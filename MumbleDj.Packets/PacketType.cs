@@ -18,7 +18,7 @@
         Acl = 13,
         QueryUsers = 14,
         CryptSetup = 15,
-        ContextActionAdd = 16,
+        ContextActionModify = 16,
         ContextAction = 17,
         UserList = 18,
         VoiceTarget = 19,
