@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    sealed public class PermissionDenied
+    public sealed class PermissionDenied
     {
         public override string ToString()
         {

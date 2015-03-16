@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    sealed public class ChannelRemove
+    public sealed class ChannelRemove
     {
         // ReSharper disable UnassignedField.Global
         [ProtoMember(1)] public UInt32 ChannelId;

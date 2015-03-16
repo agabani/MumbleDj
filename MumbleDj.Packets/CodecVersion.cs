@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    sealed public class CodecVersion
+    public sealed class CodecVersion
     {
         public override string ToString()
         {

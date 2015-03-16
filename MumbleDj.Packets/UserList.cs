@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    sealed public class UserList
+    public sealed class UserList
     {
         // ReSharper disable UnassignedField.Global
         [ProtoMember(1)] public User[] Users;
@@ -16,7 +16,7 @@ namespace MumbleDj.Packets
     }
 
     [ProtoContract]
-    sealed public class User
+    public sealed class User
     {
         public override string ToString()
         {

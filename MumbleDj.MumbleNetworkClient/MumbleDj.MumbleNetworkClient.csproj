@@ -45,7 +45,7 @@
     <Compile Include="MumbleClient.cs" />
     <Compile Include="MumbleConnection.cs" />
     <Compile Include="Models\MumbleCredentials.cs" />
-    <Compile Include="Callbacks\MumbleProxyCallback.cs" />
+    <Compile Include="Callbacks\MumbleCallbackRouter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

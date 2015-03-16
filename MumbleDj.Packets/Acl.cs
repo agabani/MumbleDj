@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    sealed public class Acl
+    public sealed class Acl
     {
         public override String ToString()
         {
@@ -23,7 +23,7 @@ namespace MumbleDj.Packets
     }
 
     [ProtoContract]
-    sealed public class ChanAcl
+    public sealed class ChanAcl
     {
         public override String ToString()
         {
@@ -43,7 +43,7 @@ namespace MumbleDj.Packets
         // ReSharper restore UnassignedField.Global
     }
 
-    sealed public class ChanGroup
+    public sealed class ChanGroup
     {
         public override string ToString()
         {

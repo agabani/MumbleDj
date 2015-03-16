@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    sealed public class Ping
+    public sealed class Ping
     {
         public override string ToString()
         {

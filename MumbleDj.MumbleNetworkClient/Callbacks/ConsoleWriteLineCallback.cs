@@ -4,7 +4,7 @@ using Version = MumbleDj.Packets.Version;
 
 namespace MumbleDj.MumbleNetworkClient.Callbacks
 {
-    internal class ConsoleWriteLineCallback
+    public class ConsoleWriteLineCallback : IMumbleCallback
     {
         public void VersionCallback(Version version)
         {

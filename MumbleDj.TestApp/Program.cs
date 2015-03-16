@@ -12,13 +12,15 @@ namespace MumbleDj.TestApp
             var address = new MumbleAddress {Address = "localhost", Port = 64738};
             var credentials = new MumbleCredentials {Username = "MumbleDj", Password = string.Empty};
 
-            var proxyCallback = new MumbleProxyCallback();
+            var router = new MumbleCallbackRouter();
+            var display = new ConsoleWriteLineCallback();
 
-            var connection = new MumbleConnection(address, proxyCallback);
+            var connection = new MumbleConnection(address, router);
             var client = new MumbleClient(connection);
             var application = new MumbleApplication(client, credentials);
 
-            proxyCallback.MumbleCallback = application;
+            router.Register(display);
+            router.Register(application);
 
             application.Run();
 
