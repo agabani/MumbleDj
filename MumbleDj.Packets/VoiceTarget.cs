@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    public class VoiceTarget
+    sealed public class VoiceTarget
     {
         public override string ToString()
         {
@@ -19,7 +19,7 @@ namespace MumbleDj.Packets
     }
 
     [ProtoContract]
-    public class Target
+    sealed public class Target
     {
         public override string ToString()
         {

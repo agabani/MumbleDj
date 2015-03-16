@@ -7,6 +7,7 @@ namespace MumbleDj.MumbleNetworkClient
     public class MumbleClient
     {
         private readonly MumbleConnection _mumbleConnection;
+        private int _millisecondsTimeout = 100;
 
         public MumbleClient(MumbleConnection mumbleConnection)
         {
@@ -16,6 +17,12 @@ namespace MumbleDj.MumbleNetworkClient
         public bool IsConnected
         {
             get { return _mumbleConnection.ConnectionState == ConnectionStates.Connected; }
+        }
+
+        public int MillisecondsTimeout
+        {
+            get { return _millisecondsTimeout; }
+            set { _millisecondsTimeout = value; }
         }
 
         public void Connect(MumbleCredentials mumbleCredentials)
@@ -30,7 +37,7 @@ namespace MumbleDj.MumbleNetworkClient
 
         public void Process()
         {
-            _mumbleConnection.Process();
+            _mumbleConnection.Process(_millisecondsTimeout);
         }
 
         public void Send<T>(PacketType type, T packet)

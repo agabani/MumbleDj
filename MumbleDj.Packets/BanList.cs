@@ -4,7 +4,7 @@ using ProtoBuf;
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    public class BanList
+    sealed public class BanList
     {
         public override string ToString()
         {
@@ -18,7 +18,7 @@ namespace MumbleDj.Packets
     }
 
     [ProtoContract]
-    public class BanEntry
+    sealed public class BanEntry
     {
         public override string ToString()
         {

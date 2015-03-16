@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using MumbleDj.MumbleNetworkClient.Callbacks;
 using MumbleDj.MumbleNetworkClient.Models;
 using MumbleDj.Packets;
@@ -117,7 +118,7 @@ namespace MumbleDj.MumbleNetworkClient
             Send(PacketType.Authenticate, authenticate);
         }
 
-        public void Process()
+        public void Process(int millisecondsTimeout)
         {
             if (!_tcpClient.Connected)
             {
@@ -133,6 +134,7 @@ namespace MumbleDj.MumbleNetworkClient
 
             if (!_tcpNetworkStream.DataAvailable)
             {
+                Thread.Sleep(millisecondsTimeout);
                 return;
             }
 

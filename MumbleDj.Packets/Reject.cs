@@ -3,7 +3,7 @@
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    public class Reject
+    sealed public class Reject
     {
         public override string ToString()
         {

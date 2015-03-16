@@ -3,7 +3,7 @@
 namespace MumbleDj.Packets
 {
     [ProtoContract]
-    public class ContextActionModify
+    sealed public class ContextActionModify
     {
         public override string ToString()
         {
