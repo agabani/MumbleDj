@@ -26,12 +26,14 @@ namespace MumbleDj.MumbleNetworkClient
 
         public MumbleConnection(MumbleAddress mumbleAddress, IMumbleCallback mumbleCallback)
         {
+            MillisecondsTimeout = 100;
             ConnectionState = ConnectionStates.Disconnected;
             _mumbleAddress = mumbleAddress;
             _mumbleCallback = mumbleCallback;
         }
 
         public ConnectionStates ConnectionState { get; private set; }
+        public int MillisecondsTimeout { get; set; }
 
         public void Dispose()
         {
@@ -118,7 +120,7 @@ namespace MumbleDj.MumbleNetworkClient
             Send(PacketType.Authenticate, authenticate);
         }
 
-        public void Process(int millisecondsTimeout)
+        public void Process()
         {
             if (!_tcpClient.Connected)
             {
@@ -134,7 +136,7 @@ namespace MumbleDj.MumbleNetworkClient
 
             if (!_tcpNetworkStream.DataAvailable)
             {
-                Thread.Sleep(millisecondsTimeout);
+                Thread.Sleep(MillisecondsTimeout);
                 return;
             }
 
