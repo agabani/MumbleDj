@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading;
 using MumbleDj.MumbleNetworkClient;
 using MumbleDj.MumbleNetworkClient.Callbacks;
-using MumbleDj.MumbleNetworkClient.Models;
 using MumbleDj.Packets;
 using Version = MumbleDj.Packets.Version;
 
@@ -11,12 +9,10 @@ namespace MumbleDj.TestApp
     public class MumbleApplication : IMumbleCallback
     {
         private readonly MumbleClient _mumbleClient;
-        private readonly MumbleCredentials _mumbleCredentials;
 
-        public MumbleApplication(MumbleClient mumbleClient, MumbleCredentials mumbleCredentials)
+        public MumbleApplication(MumbleClient mumbleClient)
         {
             _mumbleClient = mumbleClient;
-            _mumbleCredentials = mumbleCredentials;
         }
 
         public void VersionCallback(Version version)
@@ -127,22 +123,6 @@ namespace MumbleDj.TestApp
         public void EmptyCallback()
         {
             throw new NotImplementedException();
-        }
-
-        public void Run()
-        {
-            _mumbleClient.Connect(_mumbleCredentials);
-
-            var t = new Thread(a => UpdateLoop(_mumbleClient)) {IsBackground = true};
-            t.Start();
-        }
-
-        private void UpdateLoop(MumbleClient client)
-        {
-            while (client.IsConnected)
-            {
-                client.Process();
-            }
         }
     }
 }

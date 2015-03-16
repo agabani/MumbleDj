@@ -13,16 +13,17 @@ namespace MumbleDj.TestApp
             var credentials = new MumbleCredentials {Username = "MumbleDj", Password = string.Empty};
 
             var router = new MumbleCallbackRouter();
-            var display = new ConsoleWriteLineCallback();
 
             var connection = new MumbleConnection(address, router);
-            var client = new MumbleClient(connection);
-            var application = new MumbleApplication(client, credentials);
+            var client = new MumbleClient(connection, credentials);
+
+            var display = new ConsoleWriteLineCallback();
+            var application = new MumbleApplication(client);
 
             router.Register(display);
             router.Register(application);
 
-            application.Run();
+            client.Start();
 
             Console.ReadLine();
         }
