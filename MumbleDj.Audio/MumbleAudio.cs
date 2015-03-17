@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using FragLabs.Audio.Codecs;
+using MumbleDj.Audio.Utilities;
 using MumbleDj.MumbleNetworkClient.Callbacks;
 using MumbleDj.Packets;
 using NAudio.Wave;
-using Version = MumbleDj.Packets.Version;
 
-namespace MumbleDj.TestApp
+namespace MumbleDj.Audio
 {
-    internal class MumbleAudio : IMumbleCallback
+    public class MumbleAudio : IMumbleCallback
     {
         private readonly BufferedWaveProvider _bufferedWaveProvider;
         private readonly OpusDecoder _decoder;
@@ -23,10 +22,6 @@ namespace MumbleDj.TestApp
             _waveOut.Play();
         }
 
-        public void VersionCallback(Version version)
-        {
-        }
-
         public void UdpTunnelCallback(byte[] packet)
         {
             var udpPacketStream = new UdpPacketStream(new MemoryStream(packet, 1, packet.Length - 1));
@@ -35,7 +30,8 @@ namespace MumbleDj.TestApp
             var voicePacket = udpPacketParser.ParseVoicePacket(packet);
 
             int length;
-            var buffer = _decoder.Decode(voicePacket.VoicePacketAudioData.Data, voicePacket.VoicePacketAudioData.Length, out length);
+            var buffer = _decoder.Decode(voicePacket.VoicePacketAudioData.Data, voicePacket.VoicePacketAudioData.Length,
+                out length);
             _bufferedWaveProvider.AddSamples(buffer, 0, length);
         }
 
@@ -136,6 +132,10 @@ namespace MumbleDj.TestApp
         }
 
         public void EmptyCallback()
+        {
+        }
+
+        public void VersionCallback(Version version)
         {
         }
     }

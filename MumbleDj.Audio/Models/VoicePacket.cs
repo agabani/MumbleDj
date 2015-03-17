@@ -1,4 +1,4 @@
-﻿namespace MumbleDj.TestApp
+﻿namespace MumbleDj.Audio.Models
 {
     internal class VoicePacket
     {

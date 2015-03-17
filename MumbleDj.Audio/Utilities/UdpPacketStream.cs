@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
-namespace MumbleDj.TestApp
+namespace MumbleDj.Audio.Utilities
 {
-    internal class UdpPacketStream : IDisposable
+    internal class UdpPacketStream
     {
         private readonly Stream _stream;
 

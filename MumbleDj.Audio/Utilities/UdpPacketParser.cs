@@ -1,6 +1,7 @@
 ﻿using System;
+using MumbleDj.Audio.Models;
 
-namespace MumbleDj.TestApp
+namespace MumbleDj.Audio.Utilities
 {
     internal class UdpPacketParser
     {
@@ -29,7 +30,7 @@ namespace MumbleDj.TestApp
             {
                 Type = ParseUdpType(packet),
                 Flags = ParseUdpTarget(packet),
-                Session = (UInt32)udpPacketStream.ReadVarInt64(),
+                Session = (UInt32) udpPacketStream.ReadVarInt64(),
                 Sequence = udpPacketStream.ReadVarInt64()
             };
             return voicePacketHeader;

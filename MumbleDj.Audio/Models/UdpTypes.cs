@@ -1,6 +1,6 @@
-﻿namespace MumbleDj.TestApp
+﻿namespace MumbleDj.Audio.Models
 {
-    public enum UdpTypes
+    internal enum UdpTypes
     {
         CeltAlpha = 0,
         Ping = 1,

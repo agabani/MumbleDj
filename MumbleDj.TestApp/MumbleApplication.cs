@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using MumbleDj.MumbleNetworkClient;
 using MumbleDj.MumbleNetworkClient.Callbacks;
 using MumbleDj.Packets;

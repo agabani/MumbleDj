@@ -1,6 +1,6 @@
-﻿namespace MumbleDj.TestApp
+﻿namespace MumbleDj.Audio.Models
 {
-    public enum UdpTargets
+    internal enum UdpTargets
     {
         NormalTalking = 0,
         WhisperToChannel = 1,
@@ -33,6 +33,6 @@
         DirectWhisper26 = 28,
         DirectWhisper27 = 29,
         DirectWhisper28 = 30,
-        ServerLoopback = 31,
+        ServerLoopback = 31
     }
 }
