@@ -19,9 +19,11 @@ namespace MumbleDj.TestApp
 
             var display = new ConsoleWriteLineCallback();
             var application = new MumbleApplication(client);
+            var audio = new MumbleAudio();
 
             router.Register(display);
             router.Register(application);
+            router.Register(audio);
 
             client.Start();
 
